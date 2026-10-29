@@ -90,6 +90,7 @@ class DbConnPool:
                 conninfo=url,
                 min_size=1,
                 max_size=5,
+                check=AsyncConnectionPool.check_connection,  # drop connections that died while idle
                 open=False,  # Don't connect immediately, let's do it explicitly
             )
 
